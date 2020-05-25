@@ -144,7 +144,7 @@ for epoch in range(num_epochs):
 
         generator.zero_grad()
         # label.fill_(real_images) #_: in-place-operation; the same as label.fill_(1)
-        label.fill_(1)  # why is the label for the fake-image is one rather than zero?
+        label.fill_(1)  # why is the label for the fake-image is one rather than zero? -> we're trying to pass fake images as real images
         d_output = discriminator(fake_images).view(-1)
         gerror = criterion(d_output, label)
         gerror.backward()
@@ -176,3 +176,7 @@ plt.show()
 for image in image_list:
     plt.imshow(np.transpose(image,(1,2,0)))
     plt.show()
+    
+
+    
+#다음에 ipynb 파일 제출해 주세요. pycharm 쓰는 스크린샷을 포함하구요*
